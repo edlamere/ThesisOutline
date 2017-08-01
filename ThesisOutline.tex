@@ -1,0 +1,213 @@
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times,authoryear]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,authoryear]{elsarticle}
+
+%%% elsarticle_modified removed the "Preprint submitted to $JOURNAL on bottom of paper"
+ \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle_modified}
+ % \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\usepackage{lipsum}
+\usepackage{enumitem}
+
+% SHORTCUTS
+\newcommand{\tc}{ {\normalfont $^{99}$\textsuperscript{m}Tc} }
+\newcommand{\mnuc}[2]{ {\normalfont $^{#1}$\textsuperscript{m}#2} }
+\newcommand{\gnuc}[2]{ {\normalfont $^{#1}$\textsuperscript{g}#2} }
+\newcommand{\nuc}[2]{{\normalfont $^{#1}$#2} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Changes to the document should go here! 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% DEALING WITH INDENTATIONS
+\newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}} % allows custom indent length
+\setlength\parindent{0pt} % removes indents
+
+\setlength{\columnsep}{0.75cm}
+
+
+%%%%%%%
+% NOTES to myself about Latex
+%%%%%%%
+% \setcounter{tocdepth}{4} %add pargraph to TOC
+
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Title\tnoteref{label1}}
+\author{Edward Lamere}
+\title{Medically relevant cross-section  measurements for proton induced reactions on enriched molybdenum}
+\end{frontmatter}
+
+%% main text
+\section{Introduction}\label{intro}
+	\subsection{History of Technetium} %Optional
+	Small section on the discovery and the nuclear properties. Decay scheme, lifetime, etc. (Should I discuss the meaning of a metastable state?)
+	\subsection{Role of \tc in medicine} 
+		\subsubsection{Basics of Imaging Technique}
+		Description of SPECT scanner relative to MRI/CT. Introduction to patient radiation, tie into ``best" properties for isotope.
+		Tie into chemical properties. 
+		\subsubsection{Chemical Properties} Describe labellings in context of \tc comparative ease.
+		\subsubsection{The Uses of \tc in SPECT Scans}Discussion of the type of studies performed (with maybe a tie in to specific organ radiation sensitivities?)
+	\subsection{Production of \tc}
+		\subsubsection{Reactor-based Production}
+		Discuss reaction, method of separation, supply chain(?).
+			\paragraph{Current Supply Issues}
+			Discuss limited number aging of reactor, HEU issues with AIP act, low competition in market.
+		\subsubsection{Alternative Production Methods}
+		\begin{itemize}
+			\itemsep-0.2em 
+			\item LEU vs/ HEU
+			\item Other neutron methods
+			\item Gamma-ray method
+			\item Other charge-particle methods (ending with proton-irrad)
+		\end{itemize}
+		\subsubsection{Cyclotron-Production of \tc}
+		Discuss general method and connect with PET isotopes. Pro/Con list
+	\subsection{Overview of Current Literature (where we are now)}
+	\begin{itemize}
+		\itemsep-0.2em 
+		\item Large discrepancies in \nuc{100}{Mo}(p,2n)\tc XS.
+		\item The role of contaminants
+		\item Relying on calculations and limited measurements
+	\end{itemize}		
+	\subsection{Summary of Thesis Goals?}
+
+\section{Materials and Methods}
+\label{Methods}
+\subsection{Target Composition and Thickness}
+\label{ICP-MS}
+Summary paragraph about foils. Purchased from, general size range, importance of composition/thickness.
+	\subsubsection{Foil Composition}
+	\begin{itemize}
+	\itemsep-0.2em 
+	  \item ICP-MS background
+	  \item Molybdenum dissolution/chemistry
+	  \item Table of results
+	  \item Uncertainty discussion (measurement drift concerns)
+	\end{itemize}
+
+	\subsubsection{Foil Thickness}
+	\begin{itemize}
+	\itemsep-0.2em 
+	  \item Measurement parameters of alpha-spec
+	  \item Traditional method of analysis, Bland et. al. function
+	  \item Alternative fitting method description
+	  \item Proof of concept test/results (REU student?)
+	  \item Results + comparison with by weight method
+	  \item Effect on energy
+	  \item Uncertainty discussion
+	\end{itemize}
+
+\subsection{Irradiation Parameters}
+\label{FN}
+	Brief description of NSL/FN. Individual foil irradiations. Pick parameters to maximize isotopes of interest. Parameter range from 8min to 48 hours. Beam current delivered $\sim400$ - 900 nA. Spot size $\sim$ 2mm. Include a description of the beamline 9since before AM)? 
+	\subsubsection{Energy Resolution}
+	\begin{itemize}
+	\itemsep-0.5em 
+	  \item Description of test around magnet
+	  \item Absolute energy + FWHM of energy
+	  \item Non-linearity in energy loss not important
+	\end{itemize}
+	\subsection{Neutron Shielding}
+	Discuss the need for reduction, how much is produced, how it is monitored, shielding calculations and measurements of its reduction.
+
+\subsection{Detector Settings}
+\label{Gamma}
+Brief description of 110\% detector/castle setup. Describe sample geometry. Thickness of shielding. Background rates.
+\subsubsection{Description of how a HPGe works?} %optional, in Qian's thesis
+\subsubsection{True Coincidence Summing}
+Need to discuss this before efficiency measurements because they will be corrected. Lots of math here... Maybe GEANT4 simulation?
+\subsubsection{Calibration}
+	\begin{itemize}
+	\itemsep-0.2em 
+	  \item Energy Calibration
+	  	\begin{itemize}[topsep=-0pt]
+		\itemsep-0.2em 
+	  	\item Sources used, fit equation, graph?
+	  	\item Uncertainty in fitting?
+		\end{itemize}
+	  \item Efficiency Calibration
+	  	\begin{itemize}[topsep=-0pt]
+		\itemsep-0.2em 
+	  	\item Sources used, fit equation, graph
+	  	\item Self-adsorption effects
+	  	\item Uncertainty in fitting(correlated errors).
+		\end{itemize}
+	\end{itemize}
+
+\subsubsection{High-rate Gamma-ray measurements}
+	\begin{itemize}
+	\itemsep-0.2em 
+		\item Basic: deadtime correction
+		\item Cause of pile-up in detector
+		\item Impact as a potential source of error in activity
+		\item PUR circuit discussion (mechanism)
+		\item Methods of dealing with it (that I didn't use)?
+		\item Measurement of pile-up effects (see Gilmore for details.)
+	\end{itemize}
+
+\section{Data Analysis}
+\label{Analysis}
+
+\subsection{Activity Calculation}
+\label{Activity} 
+Description of tracking in time, not sum over period of time
+\subsubsection{Corrections for interfering processes}
+\label{Interfering}
+  \begin{itemize}
+  \itemsep-0.5em 
+   	\item Separation of species decaying into the same daughter nucleus using lifetime
+  	\item Separation of reactions on contaminants (why we use enriched samples) using recursive fit
+  \end{itemize}
+
+\section{Results}
+\label{Results}
+Emphasis the importance of even weakly produced Tc species (specific activity). Discuss decay to Mo-species and effect on target recycling. 
+\subsection{Lifetime Measurements}
+\label{Lifetime}
+Check that this is correct. Other effects that could cause this. I remember something in literature about others seeing this (for \mnuc{96}{Tc}).
+	\subsubsection{Impact of Cross-section values}
+	Lifetime inaccuracies have large impact of separation of meta/ground states. 
+	\subsubsection{Extraction of Lifetimes}
+	Discuss how set-up was not meant for lifetime measurements, but can provide some information. Fitting in parallel with all runs and all gamma-ray lines reduces the possible systematic effects (branching ratio/gamma intensity issues).
+\subsection{Tc-Produced XS Results}
+\label{TcXS}
+\subsection{Nb-Produced XS Results}
+\label{NbXS}
+\subsection{Other XS Results}
+\label{PNXS}
+
+\section{Discussion}
+\label{Discussion}
+\subsection{TALYS Comparison}
+\label{Talys}
+\subsubsection{HF-Calculation Background?}
+Discuss optimal TALYS parameters given our results (if we are consistent).
+
+\subsection{Effect on Specific Activity for Accelerator Produced Isotopes} %See Michael Robbe pg44
+
+\section{Conclusion}
+\label{Conclusion}
+Discuss impact on medical isotope production. Suggest extension into ability to determine optimal irradiation procedures for individual target compositions (during the recycling process, composition will change). Maximize number of cycles and minimize patient radiation.
+
+\section*{Acknowledgments}
+\label{Acknowledgements}
+
+
+\section*{References}
+\label{Ref}
+
+\end{document}
+
+%% End of file `elsarticle-template-harv.tex'.
